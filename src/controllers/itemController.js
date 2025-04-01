@@ -13,13 +13,17 @@ exports.getItems = async (req, res) => {
 // Crear un nuevo item
 exports.createItem = async (req, res) => {
   const item = new Item({
+    img: req.body.img,
     nombre: req.body.nombre,
-    descripcion: req.body.descripcion
+    color: req.body.color,
+    habilidad: req.body.habilidad
   });
 
   try {
     const nuevoItem = await item.save();
     res.status(201).json(nuevoItem);
+    console.log("Nuevo Item"+nuevoItem);
+    
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

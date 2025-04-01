@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
+  img: {
+    type: String, 
+  },
   nombre: {
     type: String,
+    required: true,
+    unique: true 
+  },
+  color: {
+    type: String, 
     required: true
   },
-  descripcion: {
+  habilidad: {
     type: String,
     required: true
   },
@@ -15,4 +23,6 @@ const itemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('Item', itemSchema);
+
+module.exports = Item;
