@@ -13,6 +13,9 @@ app.use(express.json());
 // Ruta de prueba
 // Rutas
 app.use('/api/items', require('./routes/itemRoutes'));
+app.get('/', (req, res) => {
+  res.json({ message: 'API funcionando correctamente' });
+});
 
 // Conexión a la base de datos
 mongoose.connect(process.env.MONGO_URI)
