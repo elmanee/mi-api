@@ -2,20 +2,17 @@ const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
   img: {
-    type: String, 
+    type: String
   },
   nombre: {
     type: String,
-    required: true,
-    unique: true 
+    required: true
   },
   color: {
-    type: String, 
-    required: true
+    type: String
   },
   habilidad: {
-    type: String,
-    required: true
+    type: String
   },
   createdAt: {
     type: Date,
@@ -23,6 +20,4 @@ const itemSchema = new mongoose.Schema({
   }
 });
 
-const Item = mongoose.model('Item', itemSchema);
-
-module.exports = Item;
+module.exports = mongoose.model('Item', itemSchema);

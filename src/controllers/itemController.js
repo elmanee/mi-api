@@ -22,8 +22,7 @@ exports.createItem = async (req, res) => {
   try {
     const nuevoItem = await item.save();
     res.status(201).json(nuevoItem);
-    console.log("Nuevo Item"+nuevoItem);
-    
+    console.log("Nuevo Item: " + JSON.stringify(nuevoItem));
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
